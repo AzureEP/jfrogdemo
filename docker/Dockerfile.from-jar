@@ -1,0 +1,35 @@
+# docker/Dockerfile.from-jar
+FROM eclipse-temurin:17-jre-jammy
+
+# Non-root user & minimal writable surface
+RUN useradd -u 10001 -r -s /usr/sbin/nologin app \
+  && mkdir -p /opt/app \
+  && chown -R app:app /opt/app
+WORKDIR /opt/app
+
+# Expect the workflow to provide app.jar in the build context root
+# Lock down ownership and perms to reduce tampering risk
+COPY --chown=app:app --chmod=0444 app.jar /opt/app/app.jar
+
+USER 10001
+EXPOSE 8080
+
+# JVM settings (picked up automatically by the JVM)
+ENV JAVA_TOOL_OPTIONS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75"
+
+# Optional: if actuator is enabled, uncomment for runtime health
+# HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
+#   CMD wget -qO- http://127.0.0.1:8080/actuator/health | grep -q '"status":"UP"' || exit 1
+
+# Exec form: better signal handling, no shell needed
+ENTRYPOINT ["java","-jar","/opt/app/app.jar"]
+
+# Traceability (filled from CI build args)
+ARG BUILD_TS
+ARG VCS_REF
+ARG REPO_URL
+LABEL org.opencontainers.image.created="${BUILD_TS}" \
+      org.opencontainers.image.revision="${VCS_REF}" \
+      org.opencontainers.image.source="${REPO_URL}" \
+      org.opencontainers.image.title="spring-petclinic" \
+      org.opencontainers.image.licenses="Apache-2.0"

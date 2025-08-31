@@ -1,0 +1,104 @@
+# .github/workflows/deploy-azure-webapp.yml
+name: Deploy to Azure Web App (JFrog container)
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource_group:
+        description: "Azure Resource Group"
+        required: true
+        default: "jfrogdemotest"
+      location:
+        description: "Azure location"
+        required: true
+        default: "East US 2"
+      webapp_name:
+        description: "Web App name (globally unique)"
+        required: true
+        default: "jfrogdemotestfirst"
+      plan_sku:
+        description: "App Service Plan SKU (e.g., B1, B3, P1v3)"
+        required: true
+        default: "B3"
+      plan_tier:
+        description: "Plan tier (Basic, PremiumV3, etc.)"
+        required: true
+        default: "Basic"
+      container_image:
+        description: "Image ref (tag or digest), e.g. chirag095.jfrog.io/petclinic-docker-dev-local/spring-petclinic:git-6d2e768"
+        required: true
+      port:
+        description: "Container port"
+        required: true
+        default: "8080"
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  # Optional repo variable; or hardcode your host below
+  JF_DOCKER_REGISTRY: ${{ vars.JF_DOCKER_REGISTRY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Ensure resource group exists
+        run: |
+          az group create \
+            --name "${{ github.event.inputs.resource_group }}" \
+            --location "${{ github.event.inputs.location }}"
+
+      - name: Compose parameters file (params.json)
+        run: |
+          set -euo pipefail
+          REG_URL="https://${{ env.JF_DOCKER_REGISTRY || 'chirag095.jfrog.io' }}"
+          jq -n \
+            --arg appName        "${{ github.event.inputs.webapp_name }}" \
+            --arg planName       "${{ github.event.inputs.webapp_name }}-plan" \
+            --arg planSkuName    "${{ github.event.inputs.plan_sku }}" \
+            --arg planSkuTier    "${{ github.event.inputs.plan_tier }}" \
+            --arg containerImage "${{ github.event.inputs.container_image }}" \
+            --arg registryUrl    "${REG_URL}" \
+            --arg registryUser   "${{ secrets.JFROG_USER }}" \
+            --arg registryPass   "${{ secrets.JFROG_TOKEN }}" \
+            --argjson port       ${{ github.event.inputs.port }} \
+          '{
+            appName:              {value: $appName},
+            planName:             {value: $planName},
+            planSkuName:          {value: $planSkuName},
+            planSkuTier:          {value: $planSkuTier},
+            containerImage:       {value: $containerImage},
+            registryUrl:          {value: $registryUrl},
+            registryUsername:     {value: $registryUser},
+            registryPassword:     {value: $registryPass},
+            port:                 {value: $port}
+          }' > params.json
+          echo "Wrote params.json:"
+          cat params.json
+
+      - name: Deploy Bicep (az CLI)
+        run: |
+          az deployment group create \
+            --resource-group "${{ github.event.inputs.resource_group }}" \
+            --mode Incremental \
+            --template-file infra/appservice-webapp.bicep \
+            --parameters @params.json \
+            -o json
+
+      - name: Output Web App URL
+        run: |
+          echo "https://${{ github.event.inputs.webapp_name }}.azurewebsites.net" >> $GITHUB_STEP_SUMMARY
+          echo "Deployed: https://${{ github.event.inputs.webapp_name }}.azurewebsites.net"

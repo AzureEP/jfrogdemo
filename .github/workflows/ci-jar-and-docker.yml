@@ -1,0 +1,339 @@
+# .github/workflows/ci-jar-and-docker.yml
+name: CI — JAR + SBOM → (approval) → Docker image
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # ===== Repo Variables (Settings → Variables) =====
+  JF_URL:                   ${{ vars.JF_URL }}                   # e.g. https://chirag095.jfrog.io
+  JF_MVN_SNAPSHOTS_REPO:    ${{ vars.JF_MVN_SNAPSHOTS_REPO }}    # e.g. demo-libs-snapshot
+  JF_GENERIC_AUDIT_REPO:    ${{ vars.JF_GENERIC_AUDIT_REPO }}    # e.g. generic-audit-local
+  JF_DOCKER_REGISTRY:       ${{ vars.JF_DOCKER_REGISTRY }}       # e.g. chirag095.jfrog.io
+  DOCKER_DEV_REPO:          ${{ vars.DOCKER_DEV_REPO }}          # e.g. petclinic-demo
+  IMAGE_NAME:               ${{ vars.IMAGE_NAME }}               # e.g. spring-petclinic
+
+  # Maven flags
+  MVN_FLAGS: "-B -ntp -C -e"   # batch, no transfer progress, strict checksums, stacktraces
+
+jobs:
+  jar_and_sbom:
+    name: Build, Test, SBOM (+ Xray on safe events) [+ Deploy on merge]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # ===== Secrets (names only for setup-java) =====
+      JFROG_USER:  ${{ secrets.JFROG_USER }}
+      JFROG_TOKEN: ${{ secrets.JFROG_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Derive reproducible timestamp & short SHA
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          COMMIT_TS=$(git log -1 --format=%ct)
+          echo "iso=$(date -u -d @${COMMIT_TS} +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          echo "sha7=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup JDK 17 + Maven server creds
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+          server-id: artifactory
+          server-username: JFROG_USER        # env var name
+          server-password: JFROG_TOKEN       # env var name
+
+      # ==== CRITICAL: stamp version to include commit id ====
+      - name: Stamp version as …-g<sha>-SNAPSHOT (and assert)
+        id: ver
+        shell: bash
+        run: |
+          set -euo pipefail
+          CURR=$(mvn -q -DforceStdout help:evaluate -Dexpression=project.version)
+          BASE="${CURR%-SNAPSHOT}"
+          NEW="${BASE}-g${{ steps.meta.outputs.sha7 }}-SNAPSHOT"
+          echo "Current version: ${CURR}"
+          echo "Setting version: ${NEW}"
+          mvn -q -DgenerateBackupPoms=false versions:set -DnewVersion="${NEW}"
+          EFF=$(mvn -q -DforceStdout help:evaluate -Dexpression=project.version)
+          echo "Effective project.version=${EFF}"
+          if [ "$EFF" != "$NEW" ]; then
+            echo "::error::project.version did not update to ${NEW}"; exit 1
+          fi
+          echo "new_version=${NEW}" >> "$GITHUB_OUTPUT"
+
+      - name: Build & Test (reproducible)
+        run: mvn $MVN_FLAGS -Dproject.build.outputTimestamp="${{ steps.meta.outputs.iso }}" clean verify
+
+      # ---- SBOM ----
+      - name: Generate CycloneDX SBOM (JSON)
+        id: sbom
+        run: |
+          set -euo pipefail
+          mvn org.cyclonedx:cyclonedx-maven-plugin:2.7.9:makeBom -Dcyclonedx.outputFormat=json
+          echo "--- Verifying SBOM creation ---"
+          test -f target/bom.json
+          echo "Successfully created SBOM:"
+          ls -lh target/bom.json
+          SBOM="target/bom.json"
+          echo "sbom_path=$SBOM" >> "$GITHUB_OUTPUT"
+          ls -lh "$SBOM"
+
+      - name: Stage app.jar for downstream job (commit-named copy)
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          SRC_JAR=$(ls target/*.jar | head -n1)
+          cp "$SRC_JAR" "out/spring-petclinic-g${{ steps.meta.outputs.sha7 }}.jar"
+          ls -la out
+
+      - name: Upload JAR artifact (for Docker job)
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar-${{ github.sha }}
+          path: out/spring-petclinic-g${{ steps.meta.outputs.sha7 }}.jar
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload SBOM as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ github.sha }}
+          path: ${{ steps.sbom.outputs.sbom_path }}
+          if-no-files-found: error
+          retention-days: 7
+
+      # ---------- JFrog/Xray: only on safe events ----------
+      - name: Install JFrog CLI
+        if: |
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+        uses: jfrog/setup-jfrog-cli@v4
+
+      - name: Configure JFrog CLI
+        if: |
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          jf c add art --interactive=false \
+            --url "${JF_URL}" \
+            --user "${JFROG_USER}" \
+            --password "${JFROG_TOKEN}" \
+            --overwrite=true
+          jf c use art
+          mkdir -p target/xray
+
+      - name: Xray dependency audit (Maven) — non-blocking
+        if: |
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+        continue-on-error: true
+        run: jf audit --mvn --format=json > target/xray/xray-deps.json || true
+
+      - name: Xray binary scan (built JAR) — non-blocking
+        if: |
+          github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+        continue-on-error: true
+        run: jf scan "target/*.jar" --format=json > target/xray/xray-jar.json || true
+
+      - name: Upload Xray JSONs (artifact)
+        if: |
+          (github.event_name == 'push' ||
+          (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xray-json-${{ github.sha }}
+          path: |
+            target/xray/xray-deps.json
+            target/xray/xray-jar.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # ---------- Deploy JAR to Artifactory (push->main only) ----------
+      - name: Deploy to Artifactory (snapshot repo)
+        if: github.event_name == 'push'
+        run: |
+          DEPLOY_URL="${JF_URL%/}/artifactory/${JF_MVN_SNAPSHOTS_REPO}"
+          echo "Deploying to: ${DEPLOY_URL}"
+          mvn $MVN_FLAGS \
+            -Dproject.build.outputTimestamp="${{ steps.meta.outputs.iso }}" \
+            -DaltDeploymentRepository=artifactory::default::"${DEPLOY_URL}" \
+            deploy
+
+      # ---------- Upload SBOM to JFrog Generic (commit path; push only) ----------
+      - name: Upload SBOM to generic audit repo
+        if: github.event_name == 'push'
+        run: |
+          jf rt u "${{ steps.sbom.outputs.sbom_path }}" \
+            "${JF_GENERIC_AUDIT_REPO}/sboms/petclinic/${{ github.sha }}/" \
+            --flat=true
+
+  docker_image:
+    name: Build & Push Docker image (requires approval)
+    needs: jar_and_sbom
+    if: github.event_name != 'pull_request'   # only on push or manual
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: docker-build   # configure this env with Required reviewers
+    env:
+      JFROG_USER:  ${{ secrets.JFROG_USER }}
+      JFROG_TOKEN: ${{ secrets.JFROG_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+
+      - name: Download JAR from previous job
+        uses: actions/download-artifact@v4
+        with:
+          name: app-jar-${{ github.sha }}
+          path: .
+      - name: Verify JAR present
+        run: ls -la spring-petclinic-g*.jar && cp spring-petclinic-g*.jar app.jar
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to JFrog Docker registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.JF_DOCKER_REGISTRY }}
+          username: ${{ env.JFROG_USER }}
+          password: ${{ env.JFROG_TOKEN }}
+
+      - name: Compute tags (commit & branch)
+        id: tags
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHORT="${GITHUB_SHA::7}"
+          BRANCH="${GITHUB_REF_NAME:-$(git rev-parse --abbrev-ref HEAD)}"
+          SAFE_BRANCH=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's#[^a-z0-9._-]#-#g')
+          echo "short=$SHORT"        >> "$GITHUB_OUTPUT"
+          echo "branch=$SAFE_BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Build & push image (tags include commit id)
+        id: build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/Dockerfile.from-jar
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ steps.tags.outputs.short }}
+            ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:${{ steps.tags.outputs.branch }}-latest
+          build-args: |
+            BUILD_TS=${{ github.run_started_at }}
+            VCS_REF=${{ github.sha }}
+            REPO_URL=${{ github.server_url }}/${{ github.repository }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+
+      - name: Show digest & tags
+        run: |
+          echo "digest=${{ steps.build.outputs.digest }}"
+          echo "tag1=${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ steps.tags.outputs.short }}"
+          echo "tag2=${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:${{ steps.tags.outputs.branch }}-latest"
+
+      - name: Write image mapping (commit ↔ tags ↔ digest)
+        run: |
+          cat > image-mapping.json <<EOF
+          {
+            "commit": "${{ github.sha }}",
+            "image": {
+              "registry": "${{ env.JF_DOCKER_REGISTRY }}",
+              "repo": "${{ env.DOCKER_DEV_REPO }}",
+              "name": "${{ env.IMAGE_NAME }}",
+              "tag_git": "git-${{ steps.tags.outputs.short }}",
+              "tag_branch_latest": "${{ steps.tags.outputs.branch }}-latest",
+              "digest": "${{ steps.build.outputs.digest }}"
+            },
+            "created_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          cat image-mapping.json
+
+      - name: Fetch Xray registry scan summary (by digest) — non-blocking
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIGEST="${{ steps.build.outputs.digest }}"
+          NAME="${{ env.IMAGE_NAME }}"
+          COMP_ID="docker://${{ env.DOCKER_DEV_REPO }}/${NAME}@${DIGEST}"
+          OUT="xray-image-summary.json"
+          echo "Querying Xray for component: $COMP_ID"
+          CODE=$(curl -sS -u "${{ env.JFROG_USER }}:${{ env.JFROG_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -o "$OUT" -w "%{http_code}" \
+            -X POST "${{ env.JF_URL }}/xray/api/v1/summary/components" \
+            -d "{\"components\":[{\"component_id\":\"${COMP_ID}\"}]}" || true)
+          echo "Xray summary HTTP $CODE (saved to $OUT)."
+
+      # ---- Upload mapping + Xray summary to JFrog Generic (commit paths) ----
+      - name: Install JFrog CLI (for uploads)
+        uses: jfrog/setup-jfrog-cli@v4
+
+      - name: Configure JFrog CLI (for uploads)
+        run: |
+          jf c add art --interactive=false \
+            --url "${JF_URL}" \
+            --user "${JFROG_USER}" \
+            --password "${JFROG_TOKEN}" \
+            --overwrite=true
+          jf c use art
+
+      - name: Upload mapping & Xray summary to generic audit repo (commit paths)
+        id: genup
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIGEST="${{ steps.build.outputs.digest }}"
+          SAFE_DIG=$(echo "$DIGEST" | sed 's/:/__/')
+          echo "safe_digest=$SAFE_DIG" >> "$GITHUB_OUTPUT"
+
+          # mapping
+          jf rt u "image-mapping.json" \
+            "${JF_GENERIC_AUDIT_REPO}/mappings/petclinic/${{ github.sha }}/image-mapping.json" \
+            --flat=true
+
+          # xray summary under digest subdir
+          jf rt u "xray-image-summary.json" \
+            "${JF_GENERIC_AUDIT_REPO}/xray/images/spring-petclinic/${{ github.sha }}/${SAFE_DIG}/xray-image-summary.json" \
+            --flat=true
+
+      - name: Upload mapping + Xray summary (GitHub artifacts too)
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-dev-${{ github.sha }}
+          path: |
+            image-mapping.json
+            xray-image-summary.json
+          if-no-files-found: warn
+
+      - name: Summary
+        run: |
+          echo "### Image pushed to dev/quarantine" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Digest: \`${{ steps.build.outputs.digest }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Tags:" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ steps.tags.outputs.short }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:${{ steps.tags.outputs.branch }}-latest" >> "$GITHUB_STEP_SUMMARY"
+          echo "- JFrog uploads:" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - \`${JF_GENERIC_AUDIT_REPO}/mappings/petclinic/${{ github.sha }}/image-mapping.json\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - \`${JF_GENERIC_AUDIT_REPO}/xray/images/spring-petclinic/${{ github.sha }}/${{ steps.genup.outputs.safe_digest }}/xray-image-summary.json\`" >> "$GITHUB_STEP_SUMMARY"
