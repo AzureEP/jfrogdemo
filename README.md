@@ -1,3 +1,5 @@
+[![Frogbot — PR dependency scan (Xray)](https://github.com/AzureEP/jfrogdemo/actions/workflows/frogbot.yml/badge.svg)](https://github.com/AzureEP/jfrogdemo/actions/workflows/frogbot.yml)
+
 # Spring Petclinic - Secure CI/CD with JFrog (DevSecOps)
 
 This repo demonstrates a **secure, traceable pipeline** for the Spring Petclinic app using **GitHub Actions** and **JFrog Platform**:
