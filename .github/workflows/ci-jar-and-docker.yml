@@ -32,6 +32,9 @@ jobs:
       # ===== Secrets (names only for setup-java) =====
       JFROG_USER:  ${{ secrets.JFROG_USER }}
       JFROG_TOKEN: ${{ secrets.JFROG_TOKEN }}
+    outputs:
+      sha7: ${{ steps.meta.outputs.sha7 }}
+      new_version: ${{ steps.ver.outputs.new_version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -84,13 +87,9 @@ jobs:
         run: |
           set -euo pipefail
           mvn org.cyclonedx:cyclonedx-maven-plugin:2.7.9:makeBom -Dcyclonedx.outputFormat=json
-          echo "--- Verifying SBOM creation ---"
           test -f target/bom.json
-          echo "Successfully created SBOM:"
+          echo "sbom_path=target/bom.json" >> "$GITHUB_OUTPUT"
           ls -lh target/bom.json
-          SBOM="target/bom.json"
-          echo "sbom_path=$SBOM" >> "$GITHUB_OUTPUT"
-          ls -lh "$SBOM"
 
       - name: Stage app.jar for downstream job (commit-named copy)
         run: |
@@ -100,18 +99,18 @@ jobs:
           cp "$SRC_JAR" "out/spring-petclinic-g${{ steps.meta.outputs.sha7 }}.jar"
           ls -la out
 
-      - name: Upload JAR artifact (for Docker job)
+      - name: Upload JAR artifact (for Docker job) — named by commit id
         uses: actions/upload-artifact@v4
         with:
-          name: app-jar-${{ github.sha }}
+          name: app-jar-g${{ steps.meta.outputs.sha7 }}
           path: out/spring-petclinic-g${{ steps.meta.outputs.sha7 }}.jar
           if-no-files-found: error
           retention-days: 7
 
-      - name: Upload SBOM as workflow artifact
+      - name: Upload SBOM as workflow artifact — named by commit id
         uses: actions/upload-artifact@v4
         with:
-          name: sbom-${{ github.sha }}
+          name: sbom-g${{ steps.meta.outputs.sha7 }}
           path: ${{ steps.sbom.outputs.sbom_path }}
           if-no-files-found: error
           retention-days: 7
@@ -150,13 +149,13 @@ jobs:
         continue-on-error: true
         run: jf scan "target/*.jar" --format=json > target/xray/xray-jar.json || true
 
-      - name: Upload Xray JSONs (artifact)
+      - name: Upload Xray JSONs (artifact) — named by commit id
         if: |
           (github.event_name == 'push' ||
           (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && always()
         uses: actions/upload-artifact@v4
         with:
-          name: xray-json-${{ github.sha }}
+          name: xray-json-g${{ steps.meta.outputs.sha7 }}
           path: |
             target/xray/xray-deps.json
             target/xray/xray-jar.json
@@ -179,7 +178,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           jf rt u "${{ steps.sbom.outputs.sbom_path }}" \
-            "${JF_GENERIC_AUDIT_REPO}/sboms/petclinic/${{ github.sha }}/" \
+            "${JF_GENERIC_AUDIT_REPO}/sboms/petclinic/g${{ steps.meta.outputs.sha7 }}/cyclonedx.json" \
             --flat=true
 
   docker_image:
@@ -197,10 +196,10 @@ jobs:
         uses: actions/checkout@v4
         with: { fetch-depth: 1 }
 
-      - name: Download JAR from previous job
+      - name: Download JAR from previous job (commit-named)
         uses: actions/download-artifact@v4
         with:
-          name: app-jar-${{ github.sha }}
+          name: app-jar-g${{ needs.jar_and_sbom.outputs.sha7 }}
           path: .
       - name: Verify JAR present
         run: ls -la spring-petclinic-g*.jar && cp spring-petclinic-g*.jar app.jar
@@ -235,7 +234,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ steps.tags.outputs.short }}
+            ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ needs.jar_and_sbom.outputs.sha7 }}
             ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:${{ steps.tags.outputs.branch }}-latest
           build-args: |
             BUILD_TS=${{ github.run_started_at }}
@@ -248,7 +247,7 @@ jobs:
       - name: Show digest & tags
         run: |
           echo "digest=${{ steps.build.outputs.digest }}"
-          echo "tag1=${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ steps.tags.outputs.short }}"
+          echo "tag1=${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ needs.jar_and_sbom.outputs.sha7 }}"
           echo "tag2=${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:${{ steps.tags.outputs.branch }}-latest"
 
       - name: Write image mapping (commit ↔ tags ↔ digest)
@@ -256,11 +255,12 @@ jobs:
           cat > image-mapping.json <<EOF
           {
             "commit": "${{ github.sha }}",
+            "commit_short": "g${{ needs.jar_and_sbom.outputs.sha7 }}",
             "image": {
               "registry": "${{ env.JF_DOCKER_REGISTRY }}",
               "repo": "${{ env.DOCKER_DEV_REPO }}",
               "name": "${{ env.IMAGE_NAME }}",
-              "tag_git": "git-${{ steps.tags.outputs.short }}",
+              "tag_git": "git-${{ needs.jar_and_sbom.outputs.sha7 }}",
               "tag_branch_latest": "${{ steps.tags.outputs.branch }}-latest",
               "digest": "${{ steps.build.outputs.digest }}"
             },
@@ -286,7 +286,7 @@ jobs:
             -d "{\"components\":[{\"component_id\":\"${COMP_ID}\"}]}" || true)
           echo "Xray summary HTTP $CODE (saved to $OUT)."
 
-      # ---- Upload mapping + Xray summary to JFrog Generic (commit paths) ----
+      # ---- Upload mapping + Xray summary to JFrog Generic (commit-short paths) ----
       - name: Install JFrog CLI (for uploads)
         uses: jfrog/setup-jfrog-cli@v4
 
@@ -299,7 +299,7 @@ jobs:
             --overwrite=true
           jf c use art
 
-      - name: Upload mapping & Xray summary to generic audit repo (commit paths)
+      - name: Upload mapping & Xray summary to generic audit repo (commit-short paths)
         id: genup
         shell: bash
         run: |
@@ -308,20 +308,20 @@ jobs:
           SAFE_DIG=$(echo "$DIGEST" | sed 's/:/__/')
           echo "safe_digest=$SAFE_DIG" >> "$GITHUB_OUTPUT"
 
-          # mapping
+          # mapping under short commit folder
           jf rt u "image-mapping.json" \
-            "${JF_GENERIC_AUDIT_REPO}/mappings/petclinic/${{ github.sha }}/image-mapping.json" \
+            "${JF_GENERIC_AUDIT_REPO}/mappings/petclinic/g${{ needs.jar_and_sbom.outputs.sha7 }}/image-mapping.json" \
             --flat=true
 
           # xray summary under digest subdir
           jf rt u "xray-image-summary.json" \
-            "${JF_GENERIC_AUDIT_REPO}/xray/images/spring-petclinic/${{ github.sha }}/${SAFE_DIG}/xray-image-summary.json" \
+            "${JF_GENERIC_AUDIT_REPO}/xray/images/spring-petclinic/g${{ needs.jar_and_sbom.outputs.sha7 }}/${SAFE_DIG}/xray-image-summary.json" \
             --flat=true
 
-      - name: Upload mapping + Xray summary (GitHub artifacts too)
+      - name: Upload mapping + Xray summary (GitHub artifacts) — named by commit id
         uses: actions/upload-artifact@v4
         with:
-          name: image-dev-${{ github.sha }}
+          name: image-dev-g${{ needs.jar_and_sbom.outputs.sha7 }}
           path: |
             image-mapping.json
             xray-image-summary.json
@@ -332,8 +332,8 @@ jobs:
           echo "### Image pushed to dev/quarantine" >> "$GITHUB_STEP_SUMMARY"
           echo "- Digest: \`${{ steps.build.outputs.digest }}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- Tags:" >> "$GITHUB_STEP_SUMMARY"
-          echo "  - ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ steps.tags.outputs.short }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:git-${{ needs.jar_and_sbom.outputs.sha7 }}" >> "$GITHUB_STEP_SUMMARY"
           echo "  - ${{ env.JF_DOCKER_REGISTRY }}/${{ env.DOCKER_DEV_REPO }}/${{ env.IMAGE_NAME }}:${{ steps.tags.outputs.branch }}-latest" >> "$GITHUB_STEP_SUMMARY"
           echo "- JFrog uploads:" >> "$GITHUB_STEP_SUMMARY"
-          echo "  - \`${JF_GENERIC_AUDIT_REPO}/mappings/petclinic/${{ github.sha }}/image-mapping.json\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "  - \`${JF_GENERIC_AUDIT_REPO}/xray/images/spring-petclinic/${{ github.sha }}/${{ steps.genup.outputs.safe_digest }}/xray-image-summary.json\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - \`${JF_GENERIC_AUDIT_REPO}/mappings/petclinic/g${{ needs.jar_and_sbom.outputs.sha7 }}/image-mapping.json\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "  - \`${JF_GENERIC_AUDIT_REPO}/xray/images/spring-petclinic/g${{ needs.jar_and_sbom.outputs.sha7 }}/${{ steps.genup.outputs.safe_digest }}/xray-image-summary.json\`" >> "$GITHUB_STEP_SUMMARY"
