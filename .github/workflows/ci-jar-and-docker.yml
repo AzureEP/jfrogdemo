@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  # ===== Repo Variables (Settings → Variables) =====
+  # ====== Repo Variables (Settings → Variables) ======
   JF_URL:                   ${{ vars.JF_URL }}                   # e.g. https://chirag095.jfrog.io
   JF_MVN_SNAPSHOTS_REPO:    ${{ vars.JF_MVN_SNAPSHOTS_REPO }}    # e.g. demo-libs-snapshot
   JF_GENERIC_AUDIT_REPO:    ${{ vars.JF_GENERIC_AUDIT_REPO }}    # e.g. generic-audit-local
