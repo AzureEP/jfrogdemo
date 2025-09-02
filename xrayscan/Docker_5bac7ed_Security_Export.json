@@ -1,0 +1,3412 @@
+{
+   "total_count": 50,
+   "data": [
+      {
+         "id": "XRAY-704764",
+         "severity": "Medium",
+         "severity_source": "GitHub Security Advisory",
+         "pkg_type": "maven",
+         "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Apache Tomcat.  When using PreResources or PostResources mounted other than at the root of the web application, it was possible to access those resources via an unexpected path. That path was likely not to be protected by the same security constraints as the expected path, allowing those security constraints to be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 through 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "org.apache.tomcat.embed:tomcat-embed-core",
+         "source_id": "gav://org.apache.tomcat.embed:tomcat-embed-core",
+         "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+         "component_versions": {
+            "id": "org.apache.tomcat.embed:tomcat-embed-core",
+            "vulnerable_versions": [
+               "10.1.0-M1 ≤ Version ≤ 10.1.41",
+               "11.0.0-M1 ≤ Version ≤ 11.0.7",
+               "8.5.0 ≤ Version ≤ 8.5.100",
+               "9.0.0.M1 ≤ Version ≤ 9.0.105"
+            ],
+            "fixed_versions": [
+               "10.1.42",
+               "11.0.8",
+               "9.0.106"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-49125",
+                     "cwe": [
+                        "CWE-288"
+                     ],
+                     "cwe_details": {
+                        "CWE-288": {
+                           "name": "Authentication Bypass Using an Alternate Path or Channel",
+                           "description": "A product requires authentication, but the product has an alternate path or channel that does not require authentication."
+                        }
+                     },
+                     "cvss_v3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Apache Tomcat.  When using PreResources or PostResources mounted other than at the root of the web application, it was possible to access those resources via an unexpected path. That path was likely not to be protected by the same security constraints as the expected path, allowing those security constraints to be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105. The following versions were EOL at the time the CVE was created but are known to be affected: 8.5.0 through 8.5.100. Other, older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.41.jar",
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/gav:/org.apache.tomcat.embed:tomcat-embed-core:10.1.41/org.apache.tomcat.embed:tomcat-embed-core:10.1.41"
+         ],
+         "is_cve_applicable": true,
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+            "cve_id": "CVE-2025-49125",
+            "scan_status": 1,
+            "applicability": true,
+            "evidence": null,
+            "info": "Tomcat DirResourceSet webAppMount vulnerability has been detected",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+            "vulnerability_id": "CVE-2025-49125",
+            "result": "applicable"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-704762",
+         "severity": "High",
+         "jfrog_severity": "High",
+         "severity_source": "GitHub Security Advisory",
+         "pkg_type": "maven",
+         "summary": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "org.apache.tomcat.embed:tomcat-embed-core",
+         "source_id": "gav://org.apache.tomcat.embed:tomcat-embed-core",
+         "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+         "component_versions": {
+            "id": "org.apache.tomcat.embed:tomcat-embed-core",
+            "vulnerable_versions": [
+               "10.1.0-M1 ≤ Version ≤ 10.1.41",
+               "11.0.0-M1 ≤ Version ≤ 11.0.7",
+               "8.5.0 ≤ Version ≤ 8.5.100",
+               "9.0.0.M1 ≤ Version ≤ 9.0.105"
+            ],
+            "fixed_versions": [
+               "10.1.42",
+               "11.0.8",
+               "9.0.106"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-48988",
+                     "cwe": [
+                        "CWE-770"
+                     ],
+                     "cwe_details": {
+                        "CWE-770": {
+                           "name": "Allocation of Resources Without Limits or Throttling",
+                           "description": "The product allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on the size or number of resources that can be allocated, in violation of the intended security policy for that actor."
+                        }
+                     },
+                     "cvss_v3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105. The following versions were EOL at the time the CVE was created but are known to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": true,
+         "high_profile_info": {
+            "id": 0,
+            "PublicVulnsTblID": 0,
+            "VulnId": "XRAY-704762",
+            "VulnerabilityTitle": "",
+            "ShortDescription": "Unbounded memory consumption in Apache Tomcat may lead to a denial of service when processing crafted multipart requests.",
+            "FullDescription": "[Apache Tomcat](https://tomcat.apache.org/) is an open source implementation of multiple parts of the Jakarta EE platform (Which is the evolution of the Java EE platform). Tomcat acts as a Java HTTP web application server, although it is not a full JEE application server.\nMultipart requests are a standard way for web clients to send data to a server when the data consists of multiple distinct parts. The most common type is `multipart/form-data`, used for file uploads in HTML forms.\n\nTomcat's `HTTP Connector` handles incoming `HTTP POST` requests and parses the different parts of the request. Once Tomcat has completed this initial parsing, it makes the parsed parts available to the Java web application code via the standard Servlet API, most commonly through `HttpServletRequest.getParts()`. The application then retrieves part objects, each representing an individual field or file from the multipart request.\n\nTo limit how these requests consume the memory on the server, Tomcat configures the use of `maxParameterCount` that is responsible to limit the total number of HTTP parameters in a request. The single `maxParameterCount` limit doesn't accurately reflect the disproportionately higher memory cost associated with parsing and retaining the headers of each individual multipart `part` compared to a simple URL-encoded parameter.\n\nAn attacker can craft a specially designed multipart `HTTP POST` request, containing an extremely large number of individual multipart parts where each of these parts can be very small. The overhead of handling a vast quantity of distinct headers for the different parts leads to rapid resource exhaustion on the server, which can result in a denial of service on the server.\n\nThe fixed versions introduce new `maxPartCount` and `maxPartHeaderSize` attributes to limit  the maximum total number of parts and the maximum size of a `part`'s header.",
+            "Impact": 6,
+            "VulnerabilityType": "Denial of service",
+            "Resolution": "",
+            "ExtendedImpactReasons": [
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The prerequisites for exploiting the issue are either extremely common or nonexistent (always exploitable)",
+                  "Description": "The web application deployed on the vulnerable Tomcat server must expose an endpoint that is configured to accept and process multipart requests, which is common for applications that allow file upload and web form functionalities.",
+                  "IsPositive": 0,
+                  "InsertOrder": 1
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The issue results in a severe impact (such as remote code execution)",
+                  "Description": "The vulnerability may lead to a denial of service.",
+                  "IsPositive": 0,
+                  "InsertOrder": 2
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The issue can be exploited by attackers over the network",
+                  "Description": "A remote attacker can trigger a denial of service by sending a crafted HTTP POST request over the network to the exposed web application running on the vulnerable Tomcat server.",
+                  "IsPositive": 0,
+                  "InsertOrder": 3
+               }
+            ],
+            "ExtendedReferences": [
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "RefType": "Advisory",
+                  "Title": "GitHub Published Advisory",
+                  "Url": "https://github.com/advisories/GHSA-h3gc-qfqq-6h8f",
+                  "InsertOrder": 1
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "RefType": "Patch",
+                  "Title": "GitHub Fix Commit",
+                  "Url": "https://github.com/apache/tomcat/commit/e34fe96ef8ee782b0e56b64358e8dc57cbe336a6",
+                  "InsertOrder": 2
+               }
+            ],
+            "ExtendedRelatedVulns": null
+         },
+         "component_physical_paths": [
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.41.jar",
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/gav:/org.apache.tomcat.embed:tomcat-embed-core:10.1.41/org.apache.tomcat.embed:tomcat-embed-core:10.1.41"
+         ],
+         "is_cve_applicable": false,
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+            "cve_id": "CVE-2025-48988",
+            "scan_status": 1,
+            "applicability": false,
+            "evidence": null,
+            "info": "The vulnerable configuration for multipart requests was not found",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+            "vulnerability_id": "CVE-2025-48988",
+            "result": "not_applicable"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-704393",
+         "severity": "High",
+         "jfrog_severity": "Medium",
+         "severity_source": "GitHub Security Advisory",
+         "pkg_type": "maven",
+         "summary": "pgjdbc is an open source postgresql JDBC Driver. From 42.7.4 and until 42.7.7, when the PostgreSQL JDBC driver is configured with channel binding set to required (default value is prefer), the driver would incorrectly allow connections to proceed with authentication methods that do not support channel binding (such as password, MD5, GSS, or SSPI authentication). This could allow a man-in-the-middle attacker to intercept connections that users believed were protected by channel binding requirements. This vulnerability is fixed in 42.7.7.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "org.postgresql:postgresql",
+         "source_id": "gav://org.postgresql:postgresql",
+         "source_comp_id": "gav://org.postgresql:postgresql:42.7.5",
+         "component_versions": {
+            "id": "org.postgresql:postgresql",
+            "vulnerable_versions": [
+               "42.7.4 ≤ Version < 42.7.7"
+            ],
+            "fixed_versions": [
+               "42.7.7"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-49146",
+                     "cwe": [
+                        "CWE-287"
+                     ],
+                     "cwe_details": {
+                        "CWE-287": {
+                           "name": "Improper Authentication",
+                           "description": "When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "13"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N"
+                  }
+               ],
+               "description": "### Impact\nWhen the PostgreSQL JDBC driver is configured with channel binding set to `required` (default value is `prefer`), the driver would incorrectly allow connections to proceed with authentication methods that do not support channel binding (such as password, MD5, GSS, or SSPI  authentication). This could allow a man-in-the-middle attacker to intercept connections that users believed were protected by channel binding requirements.\n\n### Patches\nTBD\n\n### Workarounds\n\nConfigure `sslMode=verify-full` to prevent MITM attacks.\n\n### References\n\n* https://www.postgresql.org/docs/current/sasl-authentication.html#SASL-SCRAM-SHA-256\n* https://datatracker.ietf.org/doc/html/rfc7677\n* https://datatracker.ietf.org/doc/html/rfc5802",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": true,
+         "high_profile_info": {
+            "id": 0,
+            "PublicVulnsTblID": 0,
+            "VulnId": "XRAY-704393",
+            "VulnerabilityTitle": "",
+            "ShortDescription": "Incorrect implementation of the channel binding option in pgJDBC may allow local network attackers to perform man-in-the-middle, forcing PSQL clients to connect to malicious PSQL servers",
+            "FullDescription": "[The PostgreSQL JDBC Driver (pgJDBC)](https://jdbc.postgresql.org/)  allows Java programs to connect to a PostgreSQL database using standard, database-independent Java code.\n\nChannel binding is a method for the server to authenticate itself to the client. This method is used against possible man-in-the-middle attacks. PgJDBC allows the user to set channel binding to one of three options:\n\n1. `require` - Meaning the connection must employ channel binding.\n\n2. `prefer` - Meaning the connection will employ channel binding if available.\n\n3. `disable` - Prevents the use of channel binding\n\nThe channel binding property is either set as part of the connection URL or as an additional `Properties` object parameter to `DriverManager.getConnection`.\n\nIt was found that when the channel property was set to `require`, pgJDBC would incorrectly allow connections to proceed with authentication methods that do not support channel binding (such as password, MD5, GSS, or SSPI authentication). This could lead to a false sense of security, as the channel binding requirement was ignored when used with non-SASL methods. A potential attacker could take advantage of the vulnerability by introducing their malicious server using one of the vulnerable authentication methods, which are able to bypass the channel binding requirement.",
+            "Impact": 5,
+            "VulnerabilityType": "Data leakage",
+            "Resolution": "",
+            "ExtendedImpactReasons": [
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector",
+                  "Description": "The default behavior of pgJDBC is to use the `prefer`channel binding option, meaning the user needs to set it to the vulnerable `require` option.\n\nIt is important to note that using the default `prefer` option opens the user's server to the same kind of attacks.",
+                  "IsPositive": 1,
+                  "InsertOrder": 1
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The issue can be exploited by attackers over the network",
+                  "Description": "The vulnerability can be exploited by local network attackers",
+                  "IsPositive": 0,
+                  "InsertOrder": 2
+               }
+            ],
+            "ExtendedReferences": [
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "RefType": "Advisory",
+                  "Title": "Advisory",
+                  "Url": "https://www.postgresql.org/about/news/postgresql-jdbc-4277-security-update-for-cve-2025-49146-3088/",
+                  "InsertOrder": 1
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "RefType": "Patch",
+                  "Title": "Fix commit",
+                  "Url": "https://github.com/pgjdbc/pgjdbc/commit/9217ed16cb2918ab1b6b9258ae97e6ede244d8a0",
+                  "InsertOrder": 2
+               }
+            ],
+            "ExtendedRelatedVulns": null
+         },
+         "component_physical_paths": [
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/gav:/org.postgresql:postgresql:42.7.5/org.postgresql:postgresql:42.7.5",
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/BOOT-INF/lib/postgresql-42.7.5.jar"
+         ],
+         "is_cve_applicable": false,
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.postgresql:postgresql:42.7.5",
+            "cve_id": "CVE-2025-49146",
+            "scan_status": 1,
+            "applicability": false,
+            "evidence": null,
+            "info": "The vulnerable channelBinding option was never set to require",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.postgresql:postgresql:42.7.5",
+            "vulnerability_id": "CVE-2025-49146",
+            "result": "not_applicable"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-513908",
+         "severity": "Low",
+         "jfrog_severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in zstd v1.4.10, where an attacker can supply empty string as an argument to the command line tool to cause buffer overrun.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libzstd1",
+         "source_id": "deb://ubuntu:libzstd1",
+         "source_comp_id": "deb://ubuntu:jammy:libzstd1:1.4.8+dfsg-3build1",
+         "component_versions": {
+            "id": "ubuntu:jammy:libzstd",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-4899",
+                     "cwe": [
+                        "CWE-400"
+                     ],
+                     "cwe_details": {
+                        "CWE-400": {
+                           "name": "Uncontrolled Resource Consumption",
+                           "description": "The product does not properly control the allocation and maintenance of a limited resource, thereby enabling an actor to influence the amount of resources consumed, eventually leading to the exhaustion of available resources."
+                        }
+                     },
+                     "cvss_v3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "A vulnerability was found in zstd v1.4.10, where an attacker can supply empty string as an argument to the command line tool to cause buffer overrun.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "2023-05-14T11:37:00Z",
+         "is_source_root": false,
+         "is_high_profile": true,
+         "high_profile_info": {
+            "id": 0,
+            "PublicVulnsTblID": 0,
+            "VulnId": "XRAY-513908",
+            "VulnerabilityTitle": "",
+            "ShortDescription": "Out-of-bounds read in zstd may lead denial of service when using crafted command-line arguments.",
+            "FullDescription": "[Zstandard](https://facebook.github.io/zstd/) is a fast lossless compression algorithm, providing high compression ratios and targeting real-time compression scenarios at zlib-level.\n`zstd` is the reference implementation in C that offers a very wide range of speed / compression trade-off, and is backed by an extremely fast decoder.\nIt was discovered that running the `zstd` tool with arbitrary arguments can lead to an OOB read due to a design flaw, which may lead to a crash of `zstd`. Since `zstd` is a standalone (forked) tool - the crash has a minimal security impact.\n\nSpecifically, passing the `--output-dir-flat` or `--output-dir-mirror` arguments with an empty string, leads to an OOB read.\n\nIt should be noted that the OOB read is of 1 byte only, which on modern systems does not even lead to a crash (in most cases of production-built software)",
+            "Impact": 4,
+            "VulnerabilityType": "Denial of service",
+            "Resolution": "",
+            "ExtendedImpactReasons": [
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The issue cannot result in a severe impact (such as remote code execution)",
+                  "Description": "Crashing a forked process has minimal to no security impact. Furthermore, a 1-byte OOB read will not lead to a crash in almost all cases.",
+                  "IsPositive": 1,
+                  "InsertOrder": 3
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The issue is trivial to exploit and does not require a published writeup or PoC",
+                  "Description": "Passing an empty string to the flags \"--output-dir-flat\" or \"--output-dir-mirror\" will trigger the 1-byte OOB read",
+                  "IsPositive": 0,
+                  "InsertOrder": 1
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "The reported CVSS was either wrongly calculated, downgraded by other vendors, or does not reflect the vulnerability's impact",
+                  "Description": "The CVSS does not take into account the high attack complexity and low real-world severity of this issue",
+                  "IsPositive": 1,
+                  "InsertOrder": 2
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "Name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector",
+                  "Description": "The attacker must be able to supply command line arguments to an invocation of the `zstd` CLI tool.",
+                  "IsPositive": 1,
+                  "InsertOrder": 4
+               }
+            ],
+            "ExtendedReferences": [
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "RefType": "Advisory",
+                  "Title": "Official GitHub Issue",
+                  "Url": "https://github.com/facebook/zstd/issues/3200",
+                  "InsertOrder": 2
+               },
+               {
+                  "id": 0,
+                  "PublicVulnsExtendedTblId": 0,
+                  "RefType": "Patch",
+                  "Title": "Official Fix Commit",
+                  "Url": "https://github.com/facebook/zstd/pull/3220/files",
+                  "InsertOrder": 1
+               }
+            ],
+            "ExtendedRelatedVulns": null
+         },
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libzstd1:1.4.8+dfsg-3build1"
+         ],
+         "is_cve_applicable": false,
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "deb://ubuntu:jammy:libzstd1:1.4.8+dfsg-3build1",
+            "cve_id": "CVE-2022-4899",
+            "scan_status": 1,
+            "applicability": false,
+            "evidence": null,
+            "info": "Vulnerable use of zstd is not found since --output-dir-flat/--output-dir-mirror is never used",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "deb://ubuntu:jammy:libzstd1:1.4.8+dfsg-3build1",
+            "vulnerability_id": "CVE-2022-4899",
+            "result": "not_applicable"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-644260",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "Integer overflow vulnerability in pcre2test before 10.41 allows attackers to cause a denial of service or other unspecified impacts via negative input.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libpcre2-8-0",
+         "source_id": "deb://ubuntu:libpcre2-8-0",
+         "source_comp_id": "deb://ubuntu:jammy:libpcre2-8-0:10.39-3ubuntu0.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:pcre2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-41409",
+                     "cwe": [
+                        "CWE-190"
+                     ],
+                     "cwe_details": {
+                        "CWE-190": {
+                           "name": "Integer Overflow or Wraparound",
+                           "description": "The product performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "14"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "Integer overflow vulnerability in pcre2test before 10.41 allows attackers to cause a denial of service or other unspecified impacts via negative input.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpcre2-8-0:10.39-3ubuntu0.1"
+         ],
+         "is_cve_applicable": false,
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "deb://ubuntu:jammy:libpcre2-8-0:10.39-3ubuntu0.1",
+            "cve_id": "CVE-2022-41409",
+            "scan_status": 1,
+            "applicability": false,
+            "evidence": null,
+            "info": "The vulnerable pcre2test binary was not found",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "deb://ubuntu:jammy:libpcre2-8-0:10.39-3ubuntu0.1",
+            "vulnerability_id": "CVE-2022-41409",
+            "result": "not_applicable"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-714352",
+         "severity": "High",
+         "severity_source": "GitHub Security Advisory",
+         "pkg_type": "maven",
+         "summary": "Improper Resource Shutdown or Release vulnerability in Apache Tomcat made Tomcat vulnerable to the made you reset attack.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.9, from 10.1.0-M1 through 10.1.43 and from 9.0.0.M1 through 9.0.107. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to one of versions 11.0.10, 10.1.44 or 9.0.108 which fix the issue.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "org.apache.tomcat.embed:tomcat-embed-core",
+         "source_id": "gav://org.apache.tomcat.embed:tomcat-embed-core",
+         "source_comp_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+         "component_versions": {
+            "id": "org.apache.tomcat.embed:tomcat-embed-core",
+            "vulnerable_versions": [
+               "10.1.0-M1 ≤ Version < 10.1.44",
+               "11.0.0-M1 ≤ Version < 11.0.10",
+               "9.0.0.M1 ≤ Version < 9.0.108"
+            ],
+            "fixed_versions": [
+               "10.1.44",
+               "11.0.10",
+               "9.0.108"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-48989",
+                     "cwe": [
+                        "CWE-404"
+                     ],
+                     "cwe_details": {
+                        "CWE-404": {
+                           "name": "Improper Resource Shutdown or Release",
+                           "description": "The product does not release or incorrectly releases a resource before it is made available for re-use."
+                        }
+                     },
+                     "cvss_v3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "Improper Resource Shutdown or Release vulnerability in Apache Tomcat made Tomcat vulnerable to the made you reset attack.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.9, from 10.1.0-M1 through 10.1.43 and from 9.0.0.M1 through 9.0.107. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to one of versions 11.0.10, 10.1.44 or 9.0.108 which fix the issue.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.41.jar",
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/gav:/org.apache.tomcat.embed:tomcat-embed-core:10.1.41/org.apache.tomcat.embed:tomcat-embed-core:10.1.41"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2025-48989",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-718976",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A flaw was found in libssh, a library that implements the SSH protocol. When calculating the session ID during the key exchange (KEX) process, an allocation failure in cryptographic functions may lead to a NULL pointer dereference. This issue can cause the client or server to crash.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libssh-4",
+         "source_id": "deb://ubuntu:libssh-4",
+         "source_comp_id": "deb://ubuntu:jammy:libssh-4:0.9.6-2ubuntu0.22.04.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:libssh",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-8114",
+                     "cwe": [
+                        "CWE-476"
+                     ],
+                     "cwe_details": {
+                        "CWE-476": {
+                           "name": "NULL Pointer Dereference",
+                           "description": "A NULL pointer dereference occurs when the application dereferences a pointer that it expects to be valid, but is NULL, typically causing a crash or exit.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "12"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "A flaw was found in libssh, a library that implements the SSH protocol. When calculating the session ID during the key exchange (KEX) process, an allocation failure in cryptographic functions may lead to a NULL pointer dereference. This issue can cause the client or server to crash.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/libssh-4:0.9.6-2ubuntu0.22.04.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2025-8114",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-714941",
+         "severity": "Medium",
+         "severity_source": "GitHub Security Advisory",
+         "pkg_type": "maven",
+         "summary": "Spring Framework MVC applications can be vulnerable to a “Path Traversal Vulnerability” when deployed on a non-compliant Servlet container.\n\nAn application can be vulnerable when all the following are true:\n\n  *  the application is deployed as a WAR or with an embedded Servlet container\n  *  the Servlet container  does not reject suspicious sequences https://jakarta.ee/specifications/servlet/6.1/jakarta-servlet-spec-6.1.html#uri-path-canonicalization \n  *  the application  serves static resources https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/static-resources.html#page-title  with Spring resource handling\n\n\nWe have verified that applications deployed on Apache Tomcat or Eclipse Jetty are not vulnerable, as long as default security features are not disabled in the configuration. Because we cannot check exploits against all Servlet containers and configuration variants, we strongly recommend upgrading your application.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "org.springframework:spring-webmvc",
+         "source_id": "gav://org.springframework:spring-webmvc",
+         "source_comp_id": "gav://org.springframework:spring-webmvc:6.2.7",
+         "component_versions": {
+            "id": "org.springframework:spring-webmvc",
+            "vulnerable_versions": [
+               "5.3.0 ≤ Version ≤ 5.3.43",
+               "6.0.0 ≤ Version ≤ 6.0.29",
+               "6.1.0 ≤ Version ≤ 6.1.21",
+               "6.2.0 ≤ Version < 6.2.10"
+            ],
+            "fixed_versions": [
+               "6.2.10"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-41242",
+                     "cwe": [
+                        "CWE-22"
+                     ],
+                     "cwe_details": {
+                        "CWE-22": {
+                           "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                           "description": "The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "8"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "Spring Framework MVC applications can be vulnerable to a “Path Traversal Vulnerability” when deployed on a non-compliant Servlet container.\n\nAn application can be vulnerable when all the following are true:\n\n  *  the application is deployed as a WAR or with an embedded Servlet container\n  *  the Servlet container  does not reject suspicious sequences https://jakarta.ee/specifications/servlet/6.1/jakarta-servlet-spec-6.1.html#uri-path-canonicalization \n  *  the application  serves static resources https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/static-resources.html#page-title  with Spring resource handling\n\n\nWe have verified that applications deployed on Apache Tomcat or Eclipse Jetty are not vulnerable, as long as default security features are not disabled in the configuration. Because we cannot check exploits against all Servlet containers and configuration variants, we strongly recommend upgrading your application.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/BOOT-INF/lib/spring-webmvc-6.2.7.jar",
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/gav:/org.springframework:spring-webmvc:6.2.7/org.springframework:spring-webmvc:6.2.7"
+         ],
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.springframework:spring-webmvc:6.2.7",
+            "cve_id": "CVE-2025-41242",
+            "scan_status": 1,
+            "applicability": null,
+            "evidence": null,
+            "info": "Static content serving is enabled, however the scanner cannot test other vulnerability prerequisites (see scanner explanation)",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "gav://org.springframework:spring-webmvc:6.2.7",
+            "vulnerability_id": "CVE-2025-41242",
+            "result": "undetermined"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-710283",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GNU Tar through 1.35 allows file overwrite via directory traversal in crafted TAR archives, with a certain two-step process. First, the victim must extract an archive that contains a ../ symlink to a critical directory. Second, the victim must extract an archive that contains a critical file, specified via a relative pathname that begins with the symlink name and ends with that critical file's name. Here, the extraction follows the symlink and overwrites the critical file. This bypasses the protection mechanism of \"Member name contains '..'\" that would occur for a single TAR archive that attempted to specify the critical file via a ../ approach. For example, the first archive can contain \"x -> ../../../../../home/victim/.ssh\" and the second archive can contain x/authorized_keys. This can affect server applications that automatically extract any number of user-supplied TAR archives, and were relying on the blocking of traversal. This can also affect software installation processes in which \"tar xf\" is run more than once (e.g., when installing a package can automatically install two dependencies that are set up as untrusted tarballs instead of official packages). NOTE: the official GNU Tar manual has an otherwise-empty directory for each \"tar xf\" in its Security Rules of Thumb; however, third-party advice leads users to run \"tar xf\" more than once into the same directory.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:tar",
+         "source_id": "deb://ubuntu:tar",
+         "source_comp_id": "deb://ubuntu:jammy:tar:1.34+dfsg-1ubuntu0.1.22.04.2",
+         "component_versions": {
+            "id": "ubuntu:jammy:tar",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-45582",
+                     "cwe": [
+                        "CWE-24"
+                     ],
+                     "cwe_details": {
+                        "CWE-24": {
+                           "name": "Path Traversal: '../filedir'",
+                           "description": "The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize ../ sequences that can resolve to a location that is outside of that directory."
+                        }
+                     },
+                     "cvss_v3": "4.1/CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:C/C:N/I:L/A:L"
+                  }
+               ],
+               "description": "GNU Tar through 1.35 allows file overwrite via directory traversal in crafted TAR archives, with a certain two-step process. First, the victim must extract an archive that contains a ../ symlink to a critical directory. Second, the victim must extract an archive that contains a critical file, specified via a relative pathname that begins with the symlink name and ends with that critical file's name. Here, the extraction follows the symlink and overwrites the critical file. This bypasses the protection mechanism of \"Member name contains '..'\" that would occur for a single TAR archive that attempted to specify the critical file via a ../ approach. For example, the first archive can contain \"x -> ../../../../../home/victim/.ssh\" and the second archive can contain x/authorized_keys. This can affect server applications that automatically extract any number of user-supplied TAR archives, and were relying on the blocking of traversal. This can also affect software installation processes in which \"tar xf\" is run more than once (e.g., when installing a package can automatically install two dependencies that are set up as untrusted tarballs instead of official packages). NOTE: the official GNU Tar manual has an otherwise-empty directory for each \"tar xf\" in its Security Rules of Thumb; however, third-party advice leads users to run \"tar xf\" more than once into the same directory.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/tar:1.34+dfsg-1ubuntu0.1.22.04.2"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2025-45582",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-704643",
+         "severity": "Medium",
+         "severity_source": "GitHub Security Advisory",
+         "pkg_type": "maven",
+         "summary": "Description\n\nIn Spring Framework, versions 6.0.x as of 6.0.5, versions 6.1.x and 6.2.x, an application is vulnerable to a reflected file download (RFD) attack when it sets a “Content-Disposition” header with a non-ASCII charset, where the filename attribute is derived from user-supplied input.\n\nSpecifically, an application is vulnerable when all the following are true:\n\n  *  The header is prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via ContentDisposition.Builder#filename(String, Charset).\n  *  The value for the filename is derived from user-supplied input.\n  *  The application does not sanitize the user-supplied input.\n  *  The downloaded content of the response is injected with malicious commands by the attacker (see RFD paper reference for details).\n\n\nAn application is not vulnerable if any of the following is true:\n\n  *  The application does not set a “Content-Disposition” response header.\n  *  The header is not prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via one of:  *  ContentDisposition.Builder#filename(String), or\n  *  ContentDisposition.Builder#filename(String, ASCII)\n\n\n\n  *  The filename is not derived from user-supplied input.\n  *  The filename is derived from user-supplied input but sanitized by the application.\n  *  The attacker cannot inject malicious content in the downloaded content of the response.\n\n\nAffected Spring Products and VersionsSpring Framework:\n\n  *  6.2.0 - 6.2.7\n  *  6.1.0 - 6.1.20\n  *  6.0.5 - 6.0.28\n  *  Older, unsupported versions are not affected\n\n\nMitigationUsers of affected versions should upgrade to the corresponding fixed version.\n\nAffected version(s)Fix versionAvailability6.2.x6.2.8OSS6.1.x6.1.21OSS6.0.x6.0.29 Commercial https://enterprise.spring.io/ No further mitigation steps are necessary.\n\n\nCWE-113 in `Content-Disposition` handling in VMware Spring Framework versions 6.0.5 to 6.2.7 allows remote attackers to launch Reflected File Download (RFD) attacks via unsanitized user input in `Con...",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "org.springframework:spring-web",
+         "source_id": "gav://org.springframework:spring-web",
+         "source_comp_id": "gav://org.springframework:spring-web:6.2.7",
+         "component_versions": {
+            "id": "org.springframework:spring-web",
+            "vulnerable_versions": [
+               "6.0.5 ≤ Version ≤ 6.0.23",
+               "6.1.0 ≤ Version < 6.1.21",
+               "6.2.0 ≤ Version < 6.2.8"
+            ],
+            "fixed_versions": [
+               "6.1.21",
+               "6.2.8"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-41234",
+                     "cwe": [
+                        "CWE-113"
+                     ],
+                     "cwe_details": {
+                        "CWE-113": {
+                           "name": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+                           "description": "The product receives data from an HTTP agent/component (e.g., web server, proxy, browser, etc.), but it does not neutralize or incorrectly neutralizes CR and LF characters before the data is included in outgoing HTTP headers."
+                        }
+                     },
+                     "cvss_v3": "6.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:L/A:N"
+                  }
+               ],
+               "description": "### Description\n\nIn Spring Framework, versions 6.0.x as of 6.0.5, versions 6.1.x and 6.2.x, an application is vulnerable to a reflected file download (RFD) attack when it sets a “Content-Disposition” header with a non-ASCII charset, where the filename attribute is derived from user-supplied input.\n\nSpecifically, an application is vulnerable when all the following are true:\n\n  -  The header is prepared with `org.springframework.http.ContentDisposition`.\n  -  The filename is set via `ContentDisposition.Builder#filename(String, Charset)`.\n  -  The value for the filename is derived from user-supplied input.\n  -  The application does not sanitize the user-supplied input.\n  -  The downloaded content of the response is injected with malicious commands by the attacker (see RFD paper reference for details).\n\n\nAn application is not vulnerable if any of the following is true:\n\n  -  The application does not set a “Content-Disposition” response header.\n  -  The header is not prepared with `org.springframework.http.ContentDisposition`.\n  -  The filename is set via one of:  \n     - `ContentDisposition.Builder#filename(String)`, or\n     - `ContentDisposition.Builder#filename(String, ASCII)`\n  -  The filename is not derived from user-supplied input.\n  -  The filename is derived from user-supplied input but sanitized by the application.\n  -  The attacker cannot inject malicious content in the downloaded content of the response.\n\n\n### Affected Spring Products and VersionsSpring Framework\n\n  -  6.2.0 - 6.2.7\n  -  6.1.0 - 6.1.20\n  -  6.0.5 - 6.0.28\n  -  Older, unsupported versions are not affected\n\n\n### Mitigation\n\nUsers of affected versions should upgrade to the corresponding fixed version.\n\n| Affected version(s) | Fix version | Availability |\n| - | - | - |\n| 6.2.x | 6.2.8 | OSS |\n| 6.1.x | 6.1.21 | OSS |\n| 6.0.x | 6.0.29 | [Commercial](https://enterprise.spring.io/) |\n\nNo further mitigation steps are necessary.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/BOOT-INF/lib/spring-web-6.2.7.jar",
+            "sha256__b323e3ac599d41b95f6b907a3ef9fadca04561949be257af1619e0d06e17c7ed.tar.gz/opt/app/app.jar/gav:/org.springframework:spring-web:6.2.7/org.springframework:spring-web:6.2.7"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2025-41234",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-654721",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libpam-modules",
+         "source_id": "deb://ubuntu:libpam-modules",
+         "source_comp_id": "deb://ubuntu:jammy:libpam-modules:1.4.0-11ubuntu2.6",
+         "component_versions": {
+            "id": "ubuntu:jammy:pam",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-10041",
+                     "cwe": [
+                        "CWE-922"
+                     ],
+                     "cwe_details": {
+                        "CWE-922": {
+                           "name": "Insecure Storage of Sensitive Information",
+                           "description": "The product stores sensitive information without properly limiting read or write access by unauthorized actors."
+                        }
+                     },
+                     "cvss_v3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-runtime:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam0g:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules-bin:1.4.0-11ubuntu2.6"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-10041",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-654721",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libpam-modules-bin",
+         "source_id": "deb://ubuntu:libpam-modules-bin",
+         "source_comp_id": "deb://ubuntu:jammy:libpam-modules-bin:1.4.0-11ubuntu2.6",
+         "component_versions": {
+            "id": "ubuntu:jammy:pam",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-10041",
+                     "cwe": [
+                        "CWE-922"
+                     ],
+                     "cwe_details": {
+                        "CWE-922": {
+                           "name": "Insecure Storage of Sensitive Information",
+                           "description": "The product stores sensitive information without properly limiting read or write access by unauthorized actors."
+                        }
+                     },
+                     "cvss_v3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-runtime:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam0g:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules-bin:1.4.0-11ubuntu2.6"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-10041",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-654721",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libpam-runtime",
+         "source_id": "deb://ubuntu:libpam-runtime",
+         "source_comp_id": "deb://ubuntu:jammy:libpam-runtime:1.4.0-11ubuntu2.6",
+         "component_versions": {
+            "id": "ubuntu:jammy:pam",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-10041",
+                     "cwe": [
+                        "CWE-922"
+                     ],
+                     "cwe_details": {
+                        "CWE-922": {
+                           "name": "Insecure Storage of Sensitive Information",
+                           "description": "The product stores sensitive information without properly limiting read or write access by unauthorized actors."
+                        }
+                     },
+                     "cvss_v3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-runtime:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam0g:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules-bin:1.4.0-11ubuntu2.6"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-10041",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-654721",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libpam0g",
+         "source_id": "deb://ubuntu:libpam0g",
+         "source_comp_id": "deb://ubuntu:jammy:libpam0g:1.4.0-11ubuntu2.6",
+         "component_versions": {
+            "id": "ubuntu:jammy:pam",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-10041",
+                     "cwe": [
+                        "CWE-922"
+                     ],
+                     "cwe_details": {
+                        "CWE-922": {
+                           "name": "Insecure Storage of Sensitive Information",
+                           "description": "The product stores sensitive information without properly limiting read or write access by unauthorized actors."
+                        }
+                     },
+                     "cvss_v3": "4.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-runtime:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam0g:1.4.0-11ubuntu2.6",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpam-modules-bin:1.4.0-11ubuntu2.6"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-10041",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-181368",
+         "severity": "Medium",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GNU Wget through 1.21.1 does not omit the Authorization header upon a redirect to a different origin, a related issue to CVE-2018-1000007.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:wget",
+         "source_id": "deb://ubuntu:wget",
+         "source_comp_id": "deb://ubuntu:jammy:wget:1.21.2-2ubuntu1.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:wget",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2021-31879",
+                     "cwe": [
+                        "CWE-601"
+                     ],
+                     "cwe_details": {
+                        "CWE-601": {
+                           "name": "URL Redirection to Untrusted Site ('Open Redirect')",
+                           "description": "A web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks."
+                        }
+                     },
+                     "cvss_v2": "5.8/CVSS:2.0/AV:N/AC:M/Au:N/C:P/I:P/A:N",
+                     "cvss_v3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+                  }
+               ],
+               "description": "GNU Wget through 1.21.1 does not omit the Authorization header upon a redirect to a different origin, a related issue to CVE-2018-1000007.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/wget:1.21.2-2ubuntu1.1"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2021-31879",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-86893",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "In PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libpcre3",
+         "source_id": "deb://ubuntu:libpcre3",
+         "source_comp_id": "deb://ubuntu:jammy:libpcre3:2:8.39-13ubuntu0.22.04.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:pcre3",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2017-11164",
+                     "cwe": [
+                        "CWE-674"
+                     ],
+                     "cwe_details": {
+                        "CWE-674": {
+                           "name": "Uncontrolled Recursion",
+                           "description": "The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack."
+                        }
+                     },
+                     "cvss_v2": "7.8/CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:C",
+                     "cvss_v3": "7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "In PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libpcre3:2:8.39-13ubuntu0.22.04.1"
+         ],
+         "cve_applicability_info": {
+            "scanner_available": true,
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "deb://ubuntu:jammy:libpcre3:2:8.39-13ubuntu0.22.04.1",
+            "cve_id": "CVE-2017-11164",
+            "scan_status": 1,
+            "applicability": null,
+            "evidence": null,
+            "info": "Applicability cannot be determined since exploitation depends on user interaction. Specifically - any CLI tool (e.g. \"pcre_exec\", \"grep\") that uses the PCRE library and receives attacker-supplied input",
+            "details": null
+         },
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "deb://ubuntu:jammy:libpcre3:2:8.39-13ubuntu0.22.04.1",
+            "vulnerability_id": "CVE-2017-11164",
+            "result": "undetermined"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-669900",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "When asked to use a `.netrc` file for credentials **and** to follow HTTP\nredirects, curl could leak the password used for the first host to the\nfollowed-to host under certain circumstances.\n\nThis flaw only manifests itself if the netrc file has a `default` entry that\nomits both login and password. A rare circumstance.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libcurl4",
+         "source_id": "deb://ubuntu:libcurl4",
+         "source_comp_id": "deb://ubuntu:jammy:libcurl4:7.81.0-1ubuntu1.20",
+         "component_versions": {
+            "id": "ubuntu:jammy:curl",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-0167",
+                     "cwe": [
+                        "NVD-CWE-noinfo",
+                        "CWE-200"
+                     ],
+                     "cwe_details": {
+                        "CWE-200": {
+                           "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+                           "description": "The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information."
+                        }
+                     },
+                     "cvss_v3": "3.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:N/A:N"
+                  }
+               ],
+               "description": "When asked to use a `.netrc` file for credentials **and** to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has a `default` entry that omits both login and password. A rare circumstance.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/libcurl4:7.81.0-1ubuntu1.20",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/curl:7.81.0-1ubuntu1.20"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2025-0167",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-669900",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "When asked to use a `.netrc` file for credentials **and** to follow HTTP\nredirects, curl could leak the password used for the first host to the\nfollowed-to host under certain circumstances.\n\nThis flaw only manifests itself if the netrc file has a `default` entry that\nomits both login and password. A rare circumstance.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:curl",
+         "source_id": "deb://ubuntu:curl",
+         "source_comp_id": "deb://ubuntu:jammy:curl:7.81.0-1ubuntu1.20",
+         "component_versions": {
+            "id": "ubuntu:jammy:curl",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2025-0167",
+                     "cwe": [
+                        "NVD-CWE-noinfo",
+                        "CWE-200"
+                     ],
+                     "cwe_details": {
+                        "CWE-200": {
+                           "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+                           "description": "The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information."
+                        }
+                     },
+                     "cvss_v3": "3.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:N/A:N"
+                  }
+               ],
+               "description": "When asked to use a `.netrc` file for credentials **and** to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has a `default` entry that omits both login and password. A rare circumstance.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/libcurl4:7.81.0-1ubuntu1.20",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/curl:7.81.0-1ubuntu1.20"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2025-0167",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-663171",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:login",
+         "source_id": "deb://ubuntu:login",
+         "source_comp_id": "deb://ubuntu:jammy:login:1:4.8.1-2ubuntu2.2",
+         "component_versions": {
+            "id": "ubuntu:jammy:shadow",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-56433"
+                  }
+               ],
+               "description": "shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/passwd:1:4.8.1-2ubuntu2.2",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/login:1:4.8.1-2ubuntu2.2"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-56433",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-663171",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:passwd",
+         "source_id": "deb://ubuntu:passwd",
+         "source_comp_id": "deb://ubuntu:jammy:passwd:1:4.8.1-2ubuntu2.2",
+         "component_versions": {
+            "id": "ubuntu:jammy:shadow",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-56433"
+                  }
+               ],
+               "description": "shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/passwd:1:4.8.1-2ubuntu2.2",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/login:1:4.8.1-2ubuntu2.2"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-56433",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-642357",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libssl3",
+         "source_id": "deb://ubuntu:libssl3",
+         "source_comp_id": "deb://ubuntu:jammy:libssl3:3.0.2-0ubuntu1.19",
+         "component_versions": {
+            "id": "ubuntu:jammy:openssl",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-41996"
+                  }
+               ],
+               "description": "Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/openssl:3.0.2-0ubuntu1.19",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libssl3:3.0.2-0ubuntu1.19"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-41996",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-642357",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:openssl",
+         "source_id": "deb://ubuntu:openssl",
+         "source_comp_id": "deb://ubuntu:jammy:openssl:3.0.2-0ubuntu1.19",
+         "component_versions": {
+            "id": "ubuntu:jammy:openssl",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-41996"
+                  }
+               ],
+               "description": "Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/openssl:3.0.2-0ubuntu1.19",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libssl3:3.0.2-0ubuntu1.19"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-41996",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-593624",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A timing-based side-channel flaw was found in libgcrypt's RSA implementation. This issue may allow a remote attacker to initiate a Bleichenbacher-style attack, which can lead to the decryption of RSA ciphertexts.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libgcrypt20",
+         "source_id": "deb://ubuntu:libgcrypt20",
+         "source_comp_id": "deb://ubuntu:jammy:libgcrypt20:1.9.4-3ubuntu3",
+         "component_versions": {
+            "id": "ubuntu:jammy:libgcrypt20",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2024-2236",
+                     "cwe": [
+                        "CWE-208"
+                     ],
+                     "cwe_details": {
+                        "CWE-208": {
+                           "name": "Observable Timing Discrepancy",
+                           "description": "Two separate operations in a product require different amounts of time to complete, in a way that is observable to an actor and reveals security-relevant information about the state of the product, such as whether a particular operation was successful or not."
+                        }
+                     },
+                     "cvss_v3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  }
+               ],
+               "description": "A timing-based side-channel flaw was found in libgcrypt's RSA implementation. This issue may allow a remote attacker to initiate a Bleichenbacher-style attack, which can lead to the decryption of RSA ciphertexts.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcrypt20:1.9.4-3ubuntu3"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2024-2236",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-588816",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libsystemd0",
+         "source_id": "deb://ubuntu:libsystemd0",
+         "source_comp_id": "deb://ubuntu:jammy:libsystemd0:249.11-0ubuntu3.16",
+         "component_versions": {
+            "id": "ubuntu:jammy:systemd",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-7008",
+                     "cwe": [
+                        "NVD-CWE-Other",
+                        "CWE-300"
+                     ],
+                     "cwe_details": {
+                        "CWE-300": {
+                           "name": "Channel Accessible by Non-Endpoint",
+                           "description": "The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or influenced by an actor that is not an endpoint."
+                        }
+                     },
+                     "cvss_v3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                  }
+               ],
+               "description": "A vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libsystemd0:249.11-0ubuntu3.16",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libudev1:249.11-0ubuntu3.16"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-7008",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-588816",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "A vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libudev1",
+         "source_id": "deb://ubuntu:libudev1",
+         "source_comp_id": "deb://ubuntu:jammy:libudev1:249.11-0ubuntu3.16",
+         "component_versions": {
+            "id": "ubuntu:jammy:systemd",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-7008",
+                     "cwe": [
+                        "NVD-CWE-Other",
+                        "CWE-300"
+                     ],
+                     "cwe_details": {
+                        "CWE-300": {
+                           "name": "Channel Accessible by Non-Endpoint",
+                           "description": "The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or influenced by an actor that is not an endpoint."
+                        }
+                     },
+                     "cvss_v3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                  }
+               ],
+               "description": "A vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libsystemd0:249.11-0ubuntu3.16",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libudev1:249.11-0ubuntu3.16"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-7008",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-540543",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:ncurses-bin",
+         "source_id": "deb://ubuntu:ncurses-bin",
+         "source_comp_id": "deb://ubuntu:jammy:ncurses-bin:6.3-2ubuntu0.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:ncurses",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-50495",
+                     "cwe": [
+                        "NVD-CWE-noinfo"
+                     ],
+                     "cvss_v3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-base:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncurses6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncursesw6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libtinfo6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-bin:6.3-2ubuntu0.1"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-50495",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-540543",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libtinfo6",
+         "source_id": "deb://ubuntu:libtinfo6",
+         "source_comp_id": "deb://ubuntu:jammy:libtinfo6:6.3-2ubuntu0.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:ncurses",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-50495",
+                     "cwe": [
+                        "NVD-CWE-noinfo"
+                     ],
+                     "cvss_v3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-base:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncurses6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncursesw6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libtinfo6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-bin:6.3-2ubuntu0.1"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-50495",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-540543",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libncurses6",
+         "source_id": "deb://ubuntu:libncurses6",
+         "source_comp_id": "deb://ubuntu:jammy:libncurses6:6.3-2ubuntu0.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:ncurses",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-50495",
+                     "cwe": [
+                        "NVD-CWE-noinfo"
+                     ],
+                     "cvss_v3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-base:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncurses6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncursesw6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libtinfo6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-bin:6.3-2ubuntu0.1"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-50495",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-540543",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:ncurses-base",
+         "source_id": "deb://ubuntu:ncurses-base",
+         "source_comp_id": "deb://ubuntu:jammy:ncurses-base:6.3-2ubuntu0.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:ncurses",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-50495",
+                     "cwe": [
+                        "NVD-CWE-noinfo"
+                     ],
+                     "cvss_v3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-base:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncurses6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncursesw6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libtinfo6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-bin:6.3-2ubuntu0.1"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-50495",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-540543",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libncursesw6",
+         "source_id": "deb://ubuntu:libncursesw6",
+         "source_comp_id": "deb://ubuntu:jammy:libncursesw6:6.3-2ubuntu0.1",
+         "component_versions": {
+            "id": "ubuntu:jammy:ncurses",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-50495",
+                     "cwe": [
+                        "NVD-CWE-noinfo"
+                     ],
+                     "cvss_v3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-base:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncurses6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libncursesw6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libtinfo6:6.3-2ubuntu0.1",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/ncurses-bin:6.3-2ubuntu0.1"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-50495",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-531774",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libgcc-s1",
+         "source_id": "deb://ubuntu:libgcc-s1",
+         "source_comp_id": "deb://ubuntu:jammy:libgcc-s1:12.3.0-1ubuntu1~22.04",
+         "component_versions": {
+            "id": "ubuntu:jammy:gcc-12",
+            "vulnerable_versions": [
+               "< 12.3.0-1ubuntu1~22.04.2"
+            ],
+            "fixed_versions": [
+               "12.3.0-1ubuntu1~22.04.2"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-4039",
+                     "cwe": [
+                        "CWE-693",
+                        "NVD-CWE-Other"
+                     ],
+                     "cwe_details": {
+                        "CWE-693": {
+                           "name": "Protection Mechanism Failure",
+                           "description": "The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product."
+                        }
+                     },
+                     "cvss_v3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                  }
+               ],
+               "description": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains that target AArch64 allows an attacker to exploit an existing buffer overflow in dynamically-sized local variables in your application without this being detected. This stack-protector failure only applies to C99-style dynamically-sized local variables or those created using alloca(). The stack-protector operates as intended for statically-sized local variables.  The default behavior when the stack-protector detects an overflow is to terminate your application, resulting in controlled loss of availability. An attacker who can exploit a buffer overflow without triggering the stack-protector might be able to change program flow control to cause an uncontrolled loss of availability or to go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcc-s1:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libstdc++6:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gcc-12-base:12.3.0-1ubuntu1~22.04"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-4039",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-531774",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gcc-12-base",
+         "source_id": "deb://ubuntu:gcc-12-base",
+         "source_comp_id": "deb://ubuntu:jammy:gcc-12-base:12.3.0-1ubuntu1~22.04",
+         "component_versions": {
+            "id": "ubuntu:jammy:gcc-12",
+            "vulnerable_versions": [
+               "< 12.3.0-1ubuntu1~22.04.2"
+            ],
+            "fixed_versions": [
+               "12.3.0-1ubuntu1~22.04.2"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-4039",
+                     "cwe": [
+                        "CWE-693",
+                        "NVD-CWE-Other"
+                     ],
+                     "cwe_details": {
+                        "CWE-693": {
+                           "name": "Protection Mechanism Failure",
+                           "description": "The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product."
+                        }
+                     },
+                     "cvss_v3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                  }
+               ],
+               "description": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains that target AArch64 allows an attacker to exploit an existing buffer overflow in dynamically-sized local variables in your application without this being detected. This stack-protector failure only applies to C99-style dynamically-sized local variables or those created using alloca(). The stack-protector operates as intended for statically-sized local variables.  The default behavior when the stack-protector detects an overflow is to terminate your application, resulting in controlled loss of availability. An attacker who can exploit a buffer overflow without triggering the stack-protector might be able to change program flow control to cause an uncontrolled loss of availability or to go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcc-s1:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libstdc++6:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gcc-12-base:12.3.0-1ubuntu1~22.04"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-4039",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-531774",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libstdc++6",
+         "source_id": "deb://ubuntu:libstdc++6",
+         "source_comp_id": "deb://ubuntu:jammy:libstdc++6:12.3.0-1ubuntu1~22.04",
+         "component_versions": {
+            "id": "ubuntu:jammy:gcc-12",
+            "vulnerable_versions": [
+               "< 12.3.0-1ubuntu1~22.04.2"
+            ],
+            "fixed_versions": [
+               "12.3.0-1ubuntu1~22.04.2"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-4039",
+                     "cwe": [
+                        "CWE-693",
+                        "NVD-CWE-Other"
+                     ],
+                     "cwe_details": {
+                        "CWE-693": {
+                           "name": "Protection Mechanism Failure",
+                           "description": "The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product."
+                        }
+                     },
+                     "cvss_v3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                  }
+               ],
+               "description": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains that target AArch64 allows an attacker to exploit an existing buffer overflow in dynamically-sized local variables in your application without this being detected. This stack-protector failure only applies to C99-style dynamically-sized local variables or those created using alloca(). The stack-protector operates as intended for statically-sized local variables.  The default behavior when the stack-protector detects an overflow is to terminate your application, resulting in controlled loss of availability. An attacker who can exploit a buffer overflow without triggering the stack-protector might be able to change program flow control to cause an uncontrolled loss of availability or to go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcc-s1:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libstdc++6:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gcc-12-base:12.3.0-1ubuntu1~22.04"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-4039",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-514884",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "In Shadow 4.13, it is possible to inject control characters into fields provided to the SUID program chfn (change finger). Although it is not possible to exploit this directly (e.g., adding a new user fails because \\n is in the block list), it is possible to misrepresent the /etc/passwd file when viewed. Use of \\r manipulations and Unicode characters to work around blocking of the : character make it possible to give the impression that a new user has been added. In other words, an adversary may be able to convince a system administrator to take the system offline (an indirect, social-engineered denial of service) by demonstrating that \"cat /etc/passwd\" shows a rogue user account.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:login",
+         "source_id": "deb://ubuntu:login",
+         "source_comp_id": "deb://ubuntu:jammy:login:1:4.8.1-2ubuntu2.2",
+         "component_versions": {
+            "id": "ubuntu:jammy:shadow",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-29383",
+                     "cwe": [
+                        "CWE-74"
+                     ],
+                     "cwe_details": {
+                        "CWE-74": {
+                           "name": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')",
+                           "description": "The product constructs all or part of a command, data structure, or record using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify how it is parsed or interpreted when it is sent to a downstream component."
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+                  }
+               ],
+               "description": "In Shadow 4.13, it is possible to inject control characters into fields provided to the SUID program chfn (change finger). Although it is not possible to exploit this directly (e.g., adding a new user fails because \\n is in the block list), it is possible to misrepresent the /etc/passwd file when viewed. Use of \\r manipulations and Unicode characters to work around blocking of the : character make it possible to give the impression that a new user has been added. In other words, an adversary may be able to convince a system administrator to take the system offline (an indirect, social-engineered denial of service) by demonstrating that \"cat /etc/passwd\" shows a rogue user account.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/passwd:1:4.8.1-2ubuntu2.2",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/login:1:4.8.1-2ubuntu2.2"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-29383",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-514884",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "In Shadow 4.13, it is possible to inject control characters into fields provided to the SUID program chfn (change finger). Although it is not possible to exploit this directly (e.g., adding a new user fails because \\n is in the block list), it is possible to misrepresent the /etc/passwd file when viewed. Use of \\r manipulations and Unicode characters to work around blocking of the : character make it possible to give the impression that a new user has been added. In other words, an adversary may be able to convince a system administrator to take the system offline (an indirect, social-engineered denial of service) by demonstrating that \"cat /etc/passwd\" shows a rogue user account.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:passwd",
+         "source_id": "deb://ubuntu:passwd",
+         "source_comp_id": "deb://ubuntu:jammy:passwd:1:4.8.1-2ubuntu2.2",
+         "component_versions": {
+            "id": "ubuntu:jammy:shadow",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2023-29383",
+                     "cwe": [
+                        "CWE-74"
+                     ],
+                     "cwe_details": {
+                        "CWE-74": {
+                           "name": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')",
+                           "description": "The product constructs all or part of a command, data structure, or record using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify how it is parsed or interpreted when it is sent to a downstream component."
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+                  }
+               ],
+               "description": "In Shadow 4.13, it is possible to inject control characters into fields provided to the SUID program chfn (change finger). Although it is not possible to exploit this directly (e.g., adding a new user fails because \\n is in the block list), it is possible to misrepresent the /etc/passwd file when viewed. Use of \\r manipulations and Unicode characters to work around blocking of the : character make it possible to give the impression that a new user has been added. In other words, an adversary may be able to convince a system administrator to take the system offline (an indirect, social-engineered denial of service) by demonstrating that \"cat /etc/passwd\" shows a rogue user account.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/passwd:1:4.8.1-2ubuntu2.2",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/login:1:4.8.1-2ubuntu2.2"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2023-29383",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-413268",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "libiberty/rust-demangle.c in GNU GCC 11.2 allows stack consumption in demangle_const, as demonstrated by nm-new.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libstdc++6",
+         "source_id": "deb://ubuntu:libstdc++6",
+         "source_comp_id": "deb://ubuntu:jammy:libstdc++6:12.3.0-1ubuntu1~22.04",
+         "component_versions": {
+            "id": "ubuntu:jammy:gcc-12",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-27943",
+                     "cwe": [
+                        "CWE-674"
+                     ],
+                     "cwe_details": {
+                        "CWE-674": {
+                           "name": "Uncontrolled Recursion",
+                           "description": "The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack."
+                        }
+                     },
+                     "cvss_v2": "4.3/CVSS:2.0/AV:N/AC:M/Au:N/C:N/I:N/A:P",
+                     "cvss_v3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "libiberty/rust-demangle.c in GNU GCC 11.2 allows stack consumption in demangle_const, as demonstrated by nm-new.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcc-s1:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gcc-12-base:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libstdc++6:12.3.0-1ubuntu1~22.04"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-27943",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-413268",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "libiberty/rust-demangle.c in GNU GCC 11.2 allows stack consumption in demangle_const, as demonstrated by nm-new.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gcc-12-base",
+         "source_id": "deb://ubuntu:gcc-12-base",
+         "source_comp_id": "deb://ubuntu:jammy:gcc-12-base:12.3.0-1ubuntu1~22.04",
+         "component_versions": {
+            "id": "ubuntu:jammy:gcc-12",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-27943",
+                     "cwe": [
+                        "CWE-674"
+                     ],
+                     "cwe_details": {
+                        "CWE-674": {
+                           "name": "Uncontrolled Recursion",
+                           "description": "The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack."
+                        }
+                     },
+                     "cvss_v2": "4.3/CVSS:2.0/AV:N/AC:M/Au:N/C:N/I:N/A:P",
+                     "cvss_v3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "libiberty/rust-demangle.c in GNU GCC 11.2 allows stack consumption in demangle_const, as demonstrated by nm-new.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcc-s1:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gcc-12-base:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libstdc++6:12.3.0-1ubuntu1~22.04"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-27943",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-413268",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "libiberty/rust-demangle.c in GNU GCC 11.2 allows stack consumption in demangle_const, as demonstrated by nm-new.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:libgcc-s1",
+         "source_id": "deb://ubuntu:libgcc-s1",
+         "source_comp_id": "deb://ubuntu:jammy:libgcc-s1:12.3.0-1ubuntu1~22.04",
+         "component_versions": {
+            "id": "ubuntu:jammy:gcc-12",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-27943",
+                     "cwe": [
+                        "CWE-674"
+                     ],
+                     "cwe_details": {
+                        "CWE-674": {
+                           "name": "Uncontrolled Recursion",
+                           "description": "The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack."
+                        }
+                     },
+                     "cvss_v2": "4.3/CVSS:2.0/AV:N/AC:M/Au:N/C:N/I:N/A:P",
+                     "cvss_v3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  }
+               ],
+               "description": "libiberty/rust-demangle.c in GNU GCC 11.2 allows stack consumption in demangle_const, as demonstrated by nm-new.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libgcc-s1:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gcc-12-base:12.3.0-1ubuntu1~22.04",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/libstdc++6:12.3.0-1ubuntu1~22.04"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-27943",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-26349",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:coreutils",
+         "source_id": "deb://ubuntu:coreutils",
+         "source_comp_id": "deb://ubuntu:jammy:coreutils:8.32-4.1ubuntu1.2",
+         "component_versions": {
+            "id": "ubuntu:jammy:coreutils",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2016-2781",
+                     "cwe": [
+                        "CWE-20"
+                     ],
+                     "cwe_details": {
+                        "CWE-20": {
+                           "name": "Improper Input Validation",
+                           "description": "The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "6"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v2": "2.1/CVSS:2.0/AV:L/AC:L/Au:N/C:N/I:P/A:N",
+                     "cvss_v3": "6.5/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N"
+                  }
+               ],
+               "description": "chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/coreutils:8.32-4.1ubuntu1.2"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2016-2781",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpg-wks-client",
+         "source_id": "deb://ubuntu:gpg-wks-client",
+         "source_comp_id": "deb://ubuntu:jammy:gpg-wks-client:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpgconf",
+         "source_id": "deb://ubuntu:gpgconf",
+         "source_comp_id": "deb://ubuntu:jammy:gpgconf:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpgsm",
+         "source_id": "deb://ubuntu:gpgsm",
+         "source_comp_id": "deb://ubuntu:jammy:gpgsm:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:dirmngr",
+         "source_id": "deb://ubuntu:dirmngr",
+         "source_comp_id": "deb://ubuntu:jammy:dirmngr:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gnupg",
+         "source_id": "deb://ubuntu:gnupg",
+         "source_comp_id": "deb://ubuntu:jammy:gnupg:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gnupg-l10n",
+         "source_id": "deb://ubuntu:gnupg-l10n",
+         "source_comp_id": "deb://ubuntu:jammy:gnupg-l10n:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gnupg-utils",
+         "source_id": "deb://ubuntu:gnupg-utils",
+         "source_comp_id": "deb://ubuntu:jammy:gnupg-utils:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpg",
+         "source_id": "deb://ubuntu:gpg",
+         "source_comp_id": "deb://ubuntu:jammy:gpg:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpg-agent",
+         "source_id": "deb://ubuntu:gpg-agent",
+         "source_comp_id": "deb://ubuntu:jammy:gpg-agent:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpg-wks-server",
+         "source_id": "deb://ubuntu:gpg-wks-server",
+         "source_comp_id": "deb://ubuntu:jammy:gpg-wks-server:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      },
+      {
+         "id": "XRAY-256472",
+         "severity": "Low",
+         "severity_source": "Ubuntu CVE Tracker",
+         "pkg_type": "debian",
+         "summary": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+         "issue_type": "security",
+         "provider": "JFrog",
+         "component": "ubuntu:gpgv",
+         "source_id": "deb://ubuntu:gpgv",
+         "source_comp_id": "deb://ubuntu:jammy:gpgv:2.2.27-3ubuntu2.4",
+         "component_versions": {
+            "id": "ubuntu:jammy:gnupg2",
+            "vulnerable_versions": [
+               "All Versions"
+            ],
+            "more_details": {
+               "cves": [
+                  {
+                     "cve": "CVE-2022-3219",
+                     "cwe": [
+                        "CWE-787"
+                     ],
+                     "cwe_details": {
+                        "CWE-787": {
+                           "name": "Out-of-bounds Write",
+                           "description": "The product writes data past the end, or before the beginning, of the intended buffer.",
+                           "categories": [
+                              {
+                                 "category": "2023 CWE Top 25",
+                                 "rank": "1"
+                              }
+                           ]
+                        }
+                     },
+                     "cvss_v3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  }
+               ],
+               "description": "GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.",
+               "provider": "JFrog"
+            }
+         },
+         "edited": "0001-01-01T00:00:00Z",
+         "is_source_root": false,
+         "is_high_profile": false,
+         "component_physical_paths": [
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-server:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-agent:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-utils:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg-l10n:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gnupg:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/dirmngr:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgconf:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpgsm:2.2.27-3ubuntu2.4",
+            "sha256__a3be5d4ce40198dc77f17780f02720f55b1898a2368f701dd1619fc9f84aac86.tar.gz/gpgv:2.2.27-3ubuntu2.4",
+            "sha256__4670547904903aa6ce1e0f44562e27d151d319243c129b927d7c8515ecb66c07.tar.gz/gpg-wks-client:2.2.27-3ubuntu2.4"
+         ],
+         "applicability_detail": {
+            "component_id": "docker://spring-petclinic:sha256:5df7267c131edcbbc7581d84d7e57ea5ee6bf7372eb97e6bfe06df7df5bac7ed",
+            "source_comp_id": "",
+            "vulnerability_id": "CVE-2022-3219",
+            "result": "not_covered"
+         },
+         "_": false
+      }
+   ],
+   "filter_counts": [
+      {
+         "field_name": "is_cve_applicable",
+         "counts": [
+            {
+               "value": "applicable",
+               "count": 1
+            },
+            {
+               "value": "not_applicable",
+               "count": 4
+            },
+            {
+               "value": "undetermined",
+               "count": 45
+            }
+         ]
+      },
+      {
+         "field_name": "applicability_result",
+         "counts": [
+            {
+               "value": "applicable",
+               "count": 1
+            },
+            {
+               "value": "not_covered",
+               "count": 43
+            },
+            {
+               "value": "not_applicable",
+               "count": 4
+            },
+            {
+               "value": "not_scanned",
+               "count": 0
+            },
+            {
+               "value": "rescan_required",
+               "count": 0
+            },
+            {
+               "value": "undetermined",
+               "count": 2
+            },
+            {
+               "value": "upgrade_required",
+               "count": 0
+            },
+            {
+               "value": "technology_unsupported",
+               "count": 0
+            }
+         ]
+      },
+      {
+         "field_name": "severity",
+         "counts": [
+            {
+               "value": "critical",
+               "count": 0
+            },
+            {
+               "value": "high",
+               "count": 3
+            },
+            {
+               "value": "medium",
+               "count": 10
+            },
+            {
+               "value": "low",
+               "count": 37
+            },
+            {
+               "value": "unknown",
+               "count": 0
+            }
+         ]
+      },
+      {
+         "field_name": "jfrog_severity",
+         "counts": [
+            {
+               "value": "critical",
+               "count": 0
+            },
+            {
+               "value": "high",
+               "count": 1
+            },
+            {
+               "value": "medium",
+               "count": 1
+            },
+            {
+               "value": "low",
+               "count": 1
+            }
+         ]
+      },
+      {
+         "field_name": "include_fix_version",
+         "counts": [
+            {
+               "value": "true",
+               "count": 9
+            },
+            {
+               "value": "false",
+               "count": 41
+            }
+         ]
+      },
+      {
+         "field_name": "jfrog_enriched",
+         "counts": [
+            {
+               "value": "true",
+               "count": 3
+            },
+            {
+               "value": "false",
+               "count": 47
+            }
+         ]
+      },
+      {
+         "field_name": "vulns_by_component",
+         "counts": [
+            {
+               "value": "deb://ubuntu:jammy:coreutils:8.32-4.1ubuntu1.2",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:curl:7.81.0-1ubuntu1.20",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:dirmngr:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gcc-12-base:12.3.0-1ubuntu1~22.04",
+               "count": 2
+            },
+            {
+               "value": "deb://ubuntu:jammy:gnupg-l10n:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gnupg-utils:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gnupg:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpg-agent:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpg-wks-client:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpg-wks-server:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpg:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpgconf:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpgsm:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:gpgv:2.2.27-3ubuntu2.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libcurl4:7.81.0-1ubuntu1.20",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libgcc-s1:12.3.0-1ubuntu1~22.04",
+               "count": 2
+            },
+            {
+               "value": "deb://ubuntu:jammy:libgcrypt20:1.9.4-3ubuntu3",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libncurses6:6.3-2ubuntu0.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libncursesw6:6.3-2ubuntu0.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libpam-modules-bin:1.4.0-11ubuntu2.6",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libpam-modules:1.4.0-11ubuntu2.6",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libpam-runtime:1.4.0-11ubuntu2.6",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libpam0g:1.4.0-11ubuntu2.6",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libpcre2-8-0:10.39-3ubuntu0.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libpcre3:2:8.39-13ubuntu0.22.04.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libssh-4:0.9.6-2ubuntu0.22.04.4",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libssl3:3.0.2-0ubuntu1.19",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libstdc++6:12.3.0-1ubuntu1~22.04",
+               "count": 2
+            },
+            {
+               "value": "deb://ubuntu:jammy:libsystemd0:249.11-0ubuntu3.16",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libtinfo6:6.3-2ubuntu0.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libudev1:249.11-0ubuntu3.16",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:libzstd1:1.4.8+dfsg-3build1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:login:1:4.8.1-2ubuntu2.2",
+               "count": 2
+            },
+            {
+               "value": "deb://ubuntu:jammy:ncurses-base:6.3-2ubuntu0.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:ncurses-bin:6.3-2ubuntu0.1",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:openssl:3.0.2-0ubuntu1.19",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:passwd:1:4.8.1-2ubuntu2.2",
+               "count": 2
+            },
+            {
+               "value": "deb://ubuntu:jammy:tar:1.34+dfsg-1ubuntu0.1.22.04.2",
+               "count": 1
+            },
+            {
+               "value": "deb://ubuntu:jammy:wget:1.21.2-2ubuntu1.1",
+               "count": 1
+            },
+            {
+               "value": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.41",
+               "count": 3
+            },
+            {
+               "value": "gav://org.postgresql:postgresql:42.7.5",
+               "count": 1
+            },
+            {
+               "value": "gav://org.springframework:spring-web:6.2.7",
+               "count": 1
+            },
+            {
+               "value": "gav://org.springframework:spring-webmvc:6.2.7",
+               "count": 1
+            }
+         ]
+      },
+      {
+         "field_name": "cwe",
+         "counts": [
+            {
+               "value": "CWE-113",
+               "count": 1
+            },
+            {
+               "value": "CWE-190",
+               "count": 1
+            },
+            {
+               "value": "CWE-20",
+               "count": 1
+            },
+            {
+               "value": "CWE-200",
+               "count": 2
+            },
+            {
+               "value": "CWE-208",
+               "count": 1
+            },
+            {
+               "value": "CWE-22",
+               "count": 1
+            },
+            {
+               "value": "CWE-24",
+               "count": 1
+            },
+            {
+               "value": "CWE-287",
+               "count": 1
+            },
+            {
+               "value": "CWE-288",
+               "count": 1
+            },
+            {
+               "value": "CWE-300",
+               "count": 2
+            },
+            {
+               "value": "CWE-400",
+               "count": 1
+            },
+            {
+               "value": "CWE-404",
+               "count": 1
+            },
+            {
+               "value": "CWE-476",
+               "count": 1
+            },
+            {
+               "value": "CWE-601",
+               "count": 1
+            },
+            {
+               "value": "CWE-674",
+               "count": 4
+            },
+            {
+               "value": "CWE-693",
+               "count": 3
+            },
+            {
+               "value": "CWE-74",
+               "count": 2
+            },
+            {
+               "value": "CWE-770",
+               "count": 1
+            },
+            {
+               "value": "CWE-787",
+               "count": 11
+            },
+            {
+               "value": "CWE-922",
+               "count": 4
+            },
+            {
+               "value": "NVD-CWE-Other",
+               "count": 5
+            },
+            {
+               "value": "NVD-CWE-noinfo",
+               "count": 7
+            }
+         ]
+      }
+   ]
+}
